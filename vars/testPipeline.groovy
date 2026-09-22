@@ -1,9 +1,36 @@
 def call (Map configMap){
     pipeline {
-        agent{
-            node{
-                label 'roboshop'
+        agent {
+            node {
+                label 'ROBOSHOP'
+            }
+        }
+        
+        stages {
+            stage('Testing') {
+                steps {
+                    script{
+                        sh """
+                            echo "testing"
+                        """
+                    }
+                }
+            }
+            
+        }
+
+        // post build
+        post { 
+            always { 
+                echo 'I will always say Hello again!'
+            }
+            success {
+                echo "pipeline success"
+            }
+            failure {
+                echo "pipeline failure"
             }
         }
     }
+
 }
