@@ -11,7 +11,7 @@ def call (Map configMap){
                 steps {
                     script{
                         sh """
-                            echo "testing"
+                            echo "project: ${configMap.project}"
                         """
                     }
                 }
